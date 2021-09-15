@@ -11,7 +11,7 @@
         "authentication": {
           "apiKey": {
             "key": "hapikey",
-            "value": "${{km/connector.hubspot_dataConnector.api_key_value}}",
+            "value": "${{apiKey}}",
             "setAsHeader": false
           }
         },
