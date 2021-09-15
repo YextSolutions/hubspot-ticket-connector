@@ -1,0 +1,179 @@
+{
+  "$id": "hubspot_dataConnector",
+  "$schema": "https://schema.yext.com/config/km/connector/v1",
+  "displayName": "Hubspot Service Hub Connector",
+  "entityType": "hubspot_ticket",
+  "source": {
+    "sourceConfig": {
+      "apiPullConfig": {
+        "requestType": "GET",
+        "url": "https://api.hubapi.com/crm/v3/objects/tickets/",
+        "authentication": {
+          "apiKey": {
+            "key": "hapikey",
+            "value": "${{km/connector.hubspot_dataConnector.api_key_value}}",
+            "setAsHeader": false
+          }
+        },
+        "paginationControl": {
+          "cursorPagination": {
+            "cursor": "paging.next.link",
+            "cursorType": "FULL_URL",
+            "detectCursorInHeader": false
+          }
+        },
+        "headers": {},
+        "queryParams": {},
+        "dataFormat": "JSON"
+      }
+    },
+    "baseSelector": {
+      "type": "JSON",
+      "header": "Entity Container",
+      "path": "results"
+    },
+    "selectors": [
+      {
+        "type": "JSON",
+        "header": "Description",
+        "path": "properties.content"
+      },
+      {
+        "type": "JSON",
+        "header": "Create Date",
+        "path": "properties.createdate"
+      },
+      {
+        "type": "JSON",
+        "header": "Last Modified Date",
+        "path": "properties.hs_lastmodifieddate"
+      },
+      {
+        "type": "JSON",
+        "header": "Pipeline",
+        "path": "properties.hs_pipeline"
+      },
+      {
+        "type": "JSON",
+        "header": "Pipeline Stage",
+        "path": "properties.hs_pipeline_stage"
+      },
+      {
+        "type": "JSON",
+        "header": "Ticket Priority",
+        "path": "properties.hs_ticket_priority"
+      },
+      {
+        "type": "JSON",
+        "header": "Subject",
+        "path": "properties.subject"
+      },
+      {
+        "type": "JSON",
+        "header": "ID",
+        "path": "id"
+      },
+      {
+        "type": "JSON",
+        "header": "Name",
+        "path": "properties.subject"
+      },
+      {
+        "type": "JSON",
+        "header": "Ticket Category",
+        "path": "properties.hs_ticket_category"
+      },
+      {
+        "type": "JSON",
+        "header": "Owner ID",
+        "path": "properties.hs_ownerId"
+      }
+    ]
+  },
+  "transforms": [
+    {
+      "extractText": {
+        "inputHeader": "Create Date",
+        "newColumnHeader": "Create Date (final)",
+        "extractOperation": "ALL_TEXT_BEFORE",
+        "extractFrom": "FIRST_INSTANCE_MATCHING_TEXT",
+        "valueToFind": {
+          "plainText": {
+            "value": "T",
+            "ignoreCase": false
+          }
+        }
+      }
+    },
+    {
+      "extractText": {
+        "inputHeader": "Last Modified Date",
+        "newColumnHeader": "Last Modified Date (final)",
+        "extractOperation": "ALL_TEXT_BEFORE",
+        "extractFrom": "FIRST_INSTANCE_MATCHING_TEXT",
+        "valueToFind": {
+          "plainText": {
+            "value": "T",
+            "ignoreCase": false
+          }
+        }
+      }
+    }
+  ],
+  "mappings": [
+    {
+      "field": "hubspot_createDate",
+      "header": "Create Date (final)",
+      "subfieldPath": []
+    },
+    {
+      "field": "hubspot_lastModifiedDate",
+      "header": "Last Modified Date (final)",
+      "subfieldPath": []
+    },
+    {
+      "field": "hubspot_pipelineStage",
+      "header": "Pipeline Stage",
+      "subfieldPath": []
+    },
+    {
+      "field": "entityId",
+      "header": "ID",
+      "subfieldPath": []
+    },
+    {
+      "field": "hubspot_ticketPriority",
+      "header": "Ticket Priority",
+      "subfieldPath": []
+    },
+    {
+      "field": "hubspot_pipeline",
+      "header": "Pipeline",
+      "subfieldPath": []
+    },
+    {
+      "field": "name",
+      "header": "Name",
+      "subfieldPath": []
+    },
+    {
+      "field": "hubspot_ticketCategory",
+      "header": "Ticket Category",
+      "subfieldPath": []
+    },
+    {
+      "field": "hubspot_ownerId",
+      "header": "Owner ID",
+      "subfieldPath": []
+    }
+  ],
+  "scheduleConfig": {
+    "customSchedule": {
+      "timeZone": "America/New_York",
+      "startDate": "2021-09-14",
+      "startTime": "00:00",
+      "frequencyType": "DAILY"
+    },
+    "runMode": "DEFAULT"
+  }
+}
