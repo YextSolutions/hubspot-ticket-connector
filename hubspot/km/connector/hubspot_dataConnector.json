@@ -1,6 +1,6 @@
 {
   "$id": "hubspot_dataConnector",
-  "$schema": "https://schema.yext.com/config/km/connector/v1",
+  "$schema": "https://schema.yext.com/config/km/connector/v2",
   "displayName": "Hubspot Service Hub Connector",
   "entityType": "hubspot_ticket",
   "source": {
