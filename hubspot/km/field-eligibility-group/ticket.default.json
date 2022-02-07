@@ -1,0 +1,16 @@
+{
+  "$id": "hubspot_ticket.default",
+  "$schema": "https://schema.yext.com/config/km/field-eligibility-group/v1",
+  "name": "Ticket-default",
+  "entityType": "hubspot_ticket",
+  "fields": [
+    "description",
+    "hubspot_createDate",
+    "hubspot_ownerId",
+    "hubspot_lastModifiedDate",
+    "hubspot_pipeline",
+    "hubspot_pipelineStage",
+    "hubspot_ticketCategory",
+    "hubspot_ticketPriority"
+  ]
+}
