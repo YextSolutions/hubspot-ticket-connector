@@ -1,58 +1,7 @@
 {
   "$id": "hubspot_ticket",
-  "$schema": "https://schema.yext.com/config/km/entity-type/v1",
+  "$schema": "https://schema.yext.com/config/km/entity-type/v2",
   "description": "",
   "displayName": "Ticket",
-  "enabled": true,
-  "field": [
-    {
-      "id": "description",
-      "required": false
-    },
-    {
-      "id": "name",
-      "required": true
-    },
-    {
-      "id": "hubspot_createDate",
-      "required": false
-    },
-    {
-      "id": "hubspot_ownerId",
-      "required": false
-    },
-    {
-      "id": "hubspot_lastModifiedDate",
-      "required": false
-    },
-    {
-      "id": "hubspot_pipeline",
-      "required": false
-    },
-    {
-      "id": "hubspot_pipelineStage",
-      "required": false
-    },
-    {
-      "id": "hubspot_ticketCategory",
-      "required": false
-    },
-    {
-      "id": "hubspot_ticketPriority",
-      "required": false
-    },
-    {
-      "id": "folder",
-      "required": false
-    },
-    {
-      "id": "labels",
-      "required": false
-    },
-    {
-      "id": "entityId",
-      "required": true
-    }
-  ],
   "pluralDisplayName": "Tickets"
 }
