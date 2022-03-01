@@ -1,5 +1,5 @@
 {
-  "$id": "hubspot_ticket.default",
+  "$id": "hubspot_ticket",
   "$schema": "https://schema.yext.com/config/km/field-eligibility-group/v1",
   "name": "Ticket-default",
   "entityType": "hubspot_ticket",
