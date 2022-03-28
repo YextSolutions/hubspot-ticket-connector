@@ -5,26 +5,12 @@
   "entityType": "hubspot_ticket",
   "source": {
     "sourceConfig": {
-      "apiPullConfig": {
-        "requestType": "GET",
-        "url": "https://api.hubapi.com/crm/v3/objects/tickets/",
-        "authentication": {
-          "apiKey": {
-            "key": "hapikey",
-            "value": "${{API_Key}}",
-            "setAsHeader": false
-          }
-        },
-        "paginationControl": {
-          "cursorPagination": {
-            "cursor": "paging.next.link",
-            "cursorType": "FULL_URL",
-            "detectCursorInHeader": false
-          }
-        },
-        "headers": {},
-        "queryParams": {},
-        "dataFormat": "JSON"
+      "nativeSourceConfig": {
+        "source": "hubspot",
+        "operation": "fetchTickets",
+        "inputs": {
+          "hapikey": "${{API_Key}}"
+        }
       }
     },
     "baseSelector": {
