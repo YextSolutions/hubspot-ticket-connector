@@ -13,11 +13,6 @@
         }
       }
     },
-    "baseSelector": {
-      "type": "JSON",
-      "header": "Entity Container",
-      "path": "results"
-    },
     "selectors": [
       {
         "type": "JSON",
