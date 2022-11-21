@@ -9,7 +9,7 @@
         "source": "hubspot",
         "operation": "fetchTickets",
         "inputs": {
-          "hapikey": "${{API_Key}}"
+          "hapikey": "${{hubspotLinkedAccountID}}"
         }
       }
     },
